@@ -9,7 +9,7 @@ namespace API
 {
     public class ClassNethereuWeb3
     {
-        public static void RegistroDeProveedor(string _RFC, string _RazonSocial, string _Domicilio, string accountAddress_)
+        public static void RegistroDeProveedor(string _RFC, string _RazonSocial, string _Domicilio, string accountAddress_) //SC
         {
             string url = "HTTP://localhost:7545";
             string address = "0xdDa4E4DfC0C6F55473Fe6082fDE76CB269fa5eE6";
