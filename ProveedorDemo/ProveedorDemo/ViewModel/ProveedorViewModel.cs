@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using API;
 
 namespace ProveedorDemo.ViewModel
 {
@@ -78,7 +79,7 @@ namespace ProveedorDemo.ViewModel
 
 
                 //NethereumWeb3.RegistroDeProveedor();
-                ToolsClass.RegistroDeProveedor(this.RFC, this.RazonSocial, this.Domicilio, this.AccountAddress);
+                ClassNethereuWeb3.RegistroDeProveedor(this.RFC, this.RazonSocial, this.Domicilio, this.AccountAddress);
 
 
                 await Application.Current.MainPage.DisplayAlert(
@@ -147,7 +148,7 @@ namespace ProveedorDemo.ViewModel
                     return;
                 }
 
-                bool existe = ToolsClass.BuscarPorRFC(this.RFC);
+                bool existe = ClassNethereuWeb3.BuscarPorRFC(this.RFC);
                 if (existe)
                 {
                     await Application.Current.MainPage.DisplayAlert(

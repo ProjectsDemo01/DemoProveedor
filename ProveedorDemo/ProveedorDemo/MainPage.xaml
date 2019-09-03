@@ -2,13 +2,69 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ProveedorDemo"
+             xmlns:viewModel="clr-namespace:ProveedorDemo.ViewModel"
              x:Class="ProveedorDemo.MainPage">
 
+    <ContentPage.BindingContext>
+        <viewModel:ProveedorViewModel>
+        </viewModel:ProveedorViewModel>
+    </ContentPage.BindingContext>
+
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Grid Padding="5"
+          Margin="10, 60, 10, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Proveedor Registro" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+               FontSize="Large"/>
+            <Label Text="Registro de Proveedor" FontSize="Medium"
+               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <Label Text="RFC" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"/>
+            <Entry Text="{Binding RFC, Mode=TwoWay}"
+               Placeholder="RFC" Grid.Row="2" Grid.Column="1">
+            </Entry>
+            <Image Grid.Row="2" Grid.Column="2" Source="visa.jpg"/>
+
+            <Label Text="Razón social" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry Text="{Binding RazonSocial, Mode=TwoWay}"
+               Placeholder="Razón social" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            </Entry>
+
+            <Label Text="Domicilio" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry Text="{Binding Domicilio, Mode=TwoWay}"
+               Placeholder="Domicilio" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+            </Entry>
+
+            <Label Text="Cuenta Address" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry Text="{Binding AccountAddress, Mode=TwoWay}"
+               Placeholder="Cuenta Address" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+            </Entry>
+
+            <Button Text="Agregar" Grid.Row="6" Grid.ColumnSpan="3" CornerRadius="25" 
+                TextColor="White" BackgroundColor="#00AE0C"
+                Command="{Binding RegisterProveedor}"/>
+
+            <Button Text="Ir a Consultar" Grid.Row="7" Grid.ColumnSpan="3" CornerRadius="25" 
+                TextColor="White" BackgroundColor="#00AE0C"
+                Command="{Binding SearchProveedor}"/>
+
+
+
+        </Grid>
     </StackLayout>
 
 </ContentPage>
