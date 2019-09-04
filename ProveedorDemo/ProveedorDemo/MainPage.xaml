@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ProveedorDemo"
              xmlns:viewModel="clr-namespace:ProveedorDemo.ViewModel"
-             x:Class="ProveedorDemo.MainPage">
+             x:Class="ProveedorDemo.MainPage"
+             Title="Proveedor">
 
     <ContentPage.BindingContext>
         <viewModel:ProveedorViewModel>
@@ -49,10 +50,10 @@
                Placeholder="Domicilio" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
             </Entry>
 
-            <Label Text="Cuenta Address" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+            <!--<Label Text="Cuenta Address" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
             <Entry Text="{Binding AccountAddress, Mode=TwoWay}"
                Placeholder="Cuenta Address" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-            </Entry>
+            </Entry>-->
 
             <Button Text="Agregar" Grid.Row="6" Grid.ColumnSpan="3" CornerRadius="25" 
                 TextColor="White" BackgroundColor="#00AE0C"

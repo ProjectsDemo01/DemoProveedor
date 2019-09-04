@@ -1,10 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using API;
 
 namespace ProveedorDemo.ViewModel
 {
@@ -14,7 +11,7 @@ namespace ProveedorDemo.ViewModel
         private string rfc;
         private string razonsocial;
         private string domicilio;
-        private string accountaddress;
+        //private string accountaddress;
         #endregion
 
         #region Propiedades
@@ -36,11 +33,11 @@ namespace ProveedorDemo.ViewModel
             set { this.domicilio = value; }
         }
 
-        public string AccountAddress
-        {
-            get { return this.accountaddress; }
-            set { this.accountaddress = value; }
-        }
+        //public string AccountAddress
+        //{
+        //    get { return this.accountaddress; }
+        //    set { this.accountaddress = value; }
+        //}
         #endregion
 
         #region Metodos
@@ -67,8 +64,8 @@ namespace ProveedorDemo.ViewModel
                 //}
                 if (string.IsNullOrEmpty(this.RFC) ||
                     string.IsNullOrEmpty(this.RazonSocial) ||
-                    string.IsNullOrEmpty(this.Domicilio) ||
-                    string.IsNullOrEmpty(this.AccountAddress))
+                    string.IsNullOrEmpty(this.Domicilio))
+                    //string.IsNullOrEmpty(this.AccountAddress))
                 {
                     await Application.Current.MainPage.DisplayAlert(
                         "Advertencia",//"Error",
@@ -76,10 +73,8 @@ namespace ProveedorDemo.ViewModel
                         "Aceptar");
                     return;
                 }
-
-
-                //NethereumWeb3.RegistroDeProveedor();
-                ClassNethereuWeb3.RegistroDeProveedor(this.RFC, this.RazonSocial, this.Domicilio, this.AccountAddress);
+                
+                var temp = APIFramework.ConectClass.RegistroDeProveedor(RFC, RazonSocial, Domicilio);
 
 
                 await Application.Current.MainPage.DisplayAlert(
@@ -148,7 +143,7 @@ namespace ProveedorDemo.ViewModel
                     return;
                 }
 
-                bool existe = ClassNethereuWeb3.BuscarPorRFC(this.RFC);
+                bool existe = APIFramework.ConectClass.BuscarPorRFC(this.RFC);
                 if (existe)
                 {
                     await Application.Current.MainPage.DisplayAlert(
